@@ -297,9 +297,9 @@ the following link (`https://www.getpostman.com/collections/5428013c8cc70aff9933
 
 Request | Result
 --------|--------
-![img1](./images/img1.png) | ![img2](./images/img2.png)
-![img3](./images/img3.png) | ![img4](./images/img4.png)
-![img5](./images/img5.png) | ![img6](./images/img6.png)
+![img1](./images/img1.PNG) | ![img2](./images/img2.PNG)
+![img3](./images/img3.PNG) | ![img4](./images/img4.PNG)
+![img5](./images/img5.PNG) | ![img6](./images/img6.PNG)
 
 ## 5. Testing
 
