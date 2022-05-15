@@ -1,28 +1,40 @@
-import React, { FC } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FC, lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
+
+// components
+import Loader from './components/Loader';
+
+// styles
+import { mainStyles } from './Styles/index.styles';
+
+const Login = lazy(() => import('./Pages/Login'));
+const Profile = lazy(() => import('./Pages/Profile'));
 
 const App: FC = () => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Edit
-        {' '}
-        <code>src/App.tsx</code>
-        {' '}
-        and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-    </header>
-  </div>
+  <main className={mainStyles}>
+    <Suspense fallback={<Loader />}>
+      <Routes>
+        <Route
+          path="/"
+          element={(
+            <Login />
+          )}
+        />
+        <Route
+          path="profile"
+          element={(
+            <Profile />
+          )}
+        />
+        <Route
+          path="*"
+          element={(
+            <Login />
+          )}
+        />
+      </Routes>
+    </Suspense>
+  </main>
 );
 
 export default App;

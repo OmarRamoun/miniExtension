@@ -19,7 +19,9 @@
   "plugins": [
     "react",
     "@typescript-eslint",
-    "react-hooks"
+    "react-hooks",
+    "testing-library",
+    "jest-dom"
   ],
   "rules": {
     "no-use-before-define": "off",
@@ -34,6 +36,9 @@
         ]
       }
     ],
+    "no-param-reassign": [2, {
+      "props": false
+    }],
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -73,7 +78,7 @@
     "max-len": [
       "warn",
       {
-        "code": 80
+        "code": 100
       }
     ],
     "react-hooks/rules-of-hooks": "error",
@@ -86,11 +91,25 @@
         "namedComponents": "arrow-function",
         "unnamedComponents": "arrow-function"
       }
-    ]
+    ],
+    "testing-library/await-async-query": "error",
+    "testing-library/no-await-sync-query": "error",
+    "testing-library/no-debugging-utils": "warn",
+    "testing-library/no-dom-import": "off",
+    "jest-dom/prefer-checked": "error",
+    "jest-dom/prefer-enabled-disabled": "error",
+    "jest-dom/prefer-required": "error",
+    "jest-dom/prefer-to-have-attribute": "error"
   },
   "settings": {
     "import/resolver": {
       "typescript": {}
     }
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
+      "extends": ["plugin:testing-library/react"]
+    }
+  ]
 }
